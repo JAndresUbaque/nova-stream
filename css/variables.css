@@ -1,0 +1,43 @@
+/* VARIABLES CSS - NovaStream */ 
+
+:root {
+    /*Colores Principales*/
+    --color-primary: #6366f1;  /*morado futurista*/
+    --color-primary-ligth: #818cf8;
+    --coloe-primary-dark: #4f46e5;
+
+    /*Colores de fondo*/ 
+    --color-bg: #0a0a0a;
+    --color-bg-light: #121212;
+    --color-bg-card: rgba(30,30, 46 0.8);
+
+    /*color de texto*/
+    --color-text: #ffffff;
+    --color-text-secondary: #a1a1aa;
+    
+    /*Colores de acento*/
+    --color-accent: #22d3ee;
+    --color-success: #4ade80;
+    --color-error: #f87171;
+
+    /*Glassmorphish*/
+    --glass-bg: rgba(15, 23, 42, 0.77);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --glass-blur: blur(20px); 
+
+    /*Sombras*/
+    --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
+    --shadow-glow: 0 0 20px rgba(99, 102, 241, 0.5);
+
+    /*Tamaños*/
+    --radius-sm: 8px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+    
+    /*Transiciones*/
+    --transition-fast: all 0.2s  ease;
+    --transition-normal: all 0.3 ease;
+    --transition-slow: all 0.5s ease;
+}
+
