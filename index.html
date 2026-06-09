@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        NovaStream - Streaming Futurista
+    </title>
+    <meta name="description" content="Plataforma de streaming fictiicia con diseño premiun">
+
+    <!--CSS-->
+    <link rel="stylesheet" href="css/reset.css"> 
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <div class="app">
+        <!-- Sidebar Izquierda -->
+        <aside class="sidebar">
+            <!-- logo-->
+            <div class="sidebar__logo">
+                <h1>NOVA<span>STREAM</span></h1>
+            </div>
+                <!--Navegación Principal-->
+            <nav class="sidebar__nav">
+                    <a href="#" class="nav-item nav-item--active">
+                    🏠 Inicio</a>
+                <a href="#" class="nav-item">
+                    🎬 Películas</a>
+                <a href="#" class="nav-item">
+                    📺 Series</a>
+                <a href="#" class="nav-item">
+                    🔥 Tendencias</a>
+                <a href="#" class="nav-item">
+                    ❤️ Mi Lista
+            </nav>
+          
+        </aside>
+        
+        <!-- Contenido Principal -->
+        <main class="main-content">
+         <!-- Navbar Superior-->
+         <header class="navbar">
+
+            <!-- Bonton Menu hamburguesa-->
+             <button class="menu-toggle" aria-label="Abrir menú">
+                ☰
+             </button>
+             
+             <!-- Navegacion horizontal-->
+              <nav class="navbar__menu">
+                <a href="#" class="nav-link">Inicio</a>
+                <a href="#" class="nav-link">Peliculas</a>
+                <a href="#" class="nav-link">Series</a>
+                <a href="#" class="nav-link">Tendencias</a>
+                <a href="#" class="nav-link">Mi Lista</a>
+              </nav>
+
+              <!--Acciones derecha-->
+              <div class="navbar__actions">
+
+                <!--Buscador-->
+              <div class="search-bar">
+                <input 
+                    type="text"
+                    placeholder="Buscar peliculas, series..."
+                    aria-label="Buscar">
+              </div>
+
+              <!--Boton de Notificaciones-->
+              <button class="icon-button" aria-label="Notificaciones">
+                🛎️
+              </button>
+              
+              <!--Perfil Usuario-->
+              <div class="profile">
+                <img src="https://via.placeholder.com/32" alt="Foto de Perfil"  class="profile__image">
+              </div>
+              </div>
+         </header>
+        
+         <!--Hero Banner-->
+         <section class="hero">
+            <div class="hero__content">
+                
+                <!--Titulo principal-->
+                <h1 class="hero__title">INTERSTELLAR</h1>
+                
+                <!--Descripción-->
+                <p class="hero__description"> 
+                    La aventura que desafia los limites del tiempo y del espacio para salvar a la humanidad.
+                </p>
+            
+                <div class="hero__meta">
+                    <span>★ 8.9</span>
+                    <span>2014</span>
+                    <span>2h 49m</span>
+                    <span>Ciencia Ficción</span>
+                </div>
+           
+            
+                  <!--Botones de acciones-->
+                <div class="hero__buttons">
+                  <button class="btn btn--primary">
+                    ▶ Ver Ahora
+                  </button>
+                  <button class="btn btn--secondary">
+                    + Mi Lista
+                  </button>
+                </div>
+            </div>
+         </section>
+         <!-- sección Tendencias ahora-->
+         <section class="section">
+
+                <h2 class="section__title">
+                🔥 Tendencias Ahora
+                </h2>
+                <div class="carousel" id="trending-carousel">
+                <!-- aqui iran las cards de las peliculas-->
+                </div>
+          </section>
+          <section class="section">
+            <h2 class="section__title">
+             ✨ Recomendado para ti    
+            </h2>
+            <div class="carousel" id="recommended-carousel">
+            <!-- aqui iran las tarjestas del peliculas-->
+            </div>
+          </section>
+        </main>
+
+        <aside class="popular-sidebar">
+            <h3 class="popular-sidebar__title">
+                🔥 Popular Hoy
+            </h3>
+
+            <div class="popular-list" id="popular-list">
+                <!--las pelis populares se pondran generan con JS-->
+            </div>
+        </aside>
+
+        <footer class="footer">
+            <div class="footer__content">
+                <p>&copy; 2026 NovaStream - Proyecto Portafolio Profesional &lt;Andres/Dev&gt; </p>
+                <p>Desarrollado con HTML5, CSS3 y JavaScript Vanilla</p>
+            </div>
+        </footer>
+        </div>
+    
+</body>
+</html>

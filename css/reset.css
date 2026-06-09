@@ -1,0 +1,46 @@
+/* Reset css */
+*, 
+*::before,
+*::after {
+ margin: 0;
+ padding: 0;
+ box-sizing: 0;
+}
+
+html {
+    font-size: 62.5%; /*1 rem = 10px*/
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    line-height: 1.6;
+    color: #ffffff;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button{
+    cursor: pointer;
+    border: none;
+    background: none;
+    font-family: inherit;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+/* remover  estilos por defecto de formularios */
+input {
+    font-family: inherit;
+    border: none;
+    background: none;
+}
