@@ -3,7 +3,7 @@
 :root {
     /*Colores Principales*/
     --color-primary: #6366f1;  /*morado futurista*/
-    --color-primary-ligth: #818cf8;
+    --color-primary-light: #818cf8;
     --coloe-primary-dark: #4f46e5;
 
     /*Colores de fondo*/ 
@@ -37,7 +37,7 @@
     
     /*Transiciones*/
     --transition-fast: all 0.2s  ease;
-    --transition-normal: all 0.3 ease;
+    --transition-normal: all 0.3s ease;
     --transition-slow: all 0.5s ease;
 }
 

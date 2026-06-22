@@ -1,0 +1,604 @@
+/* ==========================
+   NOVASTREAM — main.css
+  =====================  */
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    color: var(--color-text);
+
+    background:
+        radial-gradient(
+            circle at top,
+            #142b7c 0%,
+            #08133d 35%,
+            #04091d 70%,
+            #020512 100%
+        );
+}
+
+
+/*  APP  */
+
+.app {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    align-items: start;   /* ← clave: los hijos se alinean desde arriba */
+    width: 100%;
+    padding: 16px;
+    gap: 16px;
+}
+
+
+/* =================================================================
+   3. SIDEBAR IZQUIERDA
+   ================================================================= */
+
+.sidebar {
+    position: sticky;
+    top: 16px;                        /* distancia desde el tope al hacer scroll */
+    max-height: calc(100vh - 30px);   /* no supera la altura de la ventana */
+    overflow-y: auto;
+    scrollbar-width: none;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    border-radius: 24px;
+    padding: 24px 0 16px 0; 
+
+    background: rgba(10, 15, 40, 0.75);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.sidebar::-webkit-scrollbar { display: none; }
+
+/* Logo con degradado morado → cyan */
+.sidebar__logo {
+    padding: 0 24px 20px 24px; 
+}
+
+.sidebar__logo h1 {
+    font-size: 2.75rem;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Nav: columna de enlaces */
+.sidebar__nav {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 0 16px;
+    flex: 1;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px;
+    border-radius: 12px;
+    font-size: 1.4rem;
+    color: var(--color-text-secondary);
+    transition: var(--transition-normal);
+}
+
+.nav-item:hover {
+    background: rgba(99, 102, 241, 0.15);
+    color: white;
+}
+
+/* Ítem activo: fondo degradado + brillo */
+.nav-item--active {
+    background: linear-gradient(90deg, #4f46e5, #818cf8);
+    color: white;
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
+}
+
+/* Widget Premium al fondo */
+.sidebar-widget {
+    margin: 18px;
+    padding: 18px;
+    border-radius: 16px;
+    text-align: center;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--color-primary-light);
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    background: rgba(99, 102, 241, 0.1);
+}
+
+
+/* =================================================================
+   4. MAIN CONTENT — columna derecha
+   flex column apila: navbar → hero → secciones → footer.
+   min-width: 0 es CRÍTICO en grid: sin esto los carruseles
+   pueden desbordar su celda.
+   ================================================================= */
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-width: 0;
+}
+
+
+/* =================================================================
+   5. NAVBAR
+   flex centra verticalmente todos sus hijos.
+   margin-left: auto en .navbar__actions lo empuja a la derecha.
+   ================================================================= */
+
+.navbar {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    height: 72px;
+    padding: 0 28px;
+    border-radius: 20px;
+
+    background: rgba(10, 15, 40, 0.75);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.menu-toggle {
+    font-size: 2.4rem;
+    color: white;
+    flex-shrink: 0;
+}
+
+.navbar__menu {
+    display: flex;
+    gap: 28px;
+}
+
+.nav-link {
+    font-size: 1.5rem;
+    color: var(--color-text-secondary);
+    transition: var(--transition-normal);
+}
+
+.nav-link:hover { color: white; }
+
+/* margin-left: auto empuja este bloque al extremo derecho */
+.navbar__actions {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+/* Input tipo pill */
+.search-bar input {
+    width: 260px;
+    padding: 10px 20px;
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.08);
+    color: white;
+    font-size: 1.4rem;
+    transition: var(--transition-normal);
+}
+
+.search-bar input:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.13);
+    box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.4);
+}
+
+.search-bar input::placeholder {
+    color: rgba(255, 255, 255, 0.45);
+}
+
+.icon-button {
+    font-size: 2rem;
+    color: var(--color-text-secondary);
+    transition: var(--transition-normal);
+}
+
+.icon-button:hover { color: white; }
+
+/* Avatar circular */
+.profile__image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--color-primary);
+}
+
+
+/* =================================================================
+   6. HERO BANNER
+   2 capas de background: degradado encima (legibilidad) + imagen.
+   flex pone el contenido de texto a la izquierda y el panel
+   "Popular Hoy" a la derecha.
+   ================================================================= */
+
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 20px;
+    min-height: 420px;
+    padding: 36px 32px;
+    border-radius: 24px;
+    border: 0.5px solid rgba(255, 255, 255, 0.08);
+
+    background-image:
+        linear-gradient(
+            to right,
+            rgba(0, 0, 0, 0.85) 30%,
+            rgba(0, 0, 0, 0.2)
+        ),
+        url('https://picsum.photos/id/1015/1920/1080');
+
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 0 40px rgba(99, 102, 241, 0.2);
+}
+
+/* Texto del hero: ocupa el espacio disponible */
+.hero__content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 600px;
+}
+
+.hero__title {
+    font-size: 5.5rem;
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: 16px;
+    letter-spacing: 2px;
+}
+
+.hero__description {
+    font-size: 1.7rem;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
+    margin-bottom: 20px;
+    max-width: 480px;
+}
+
+/* Píldoras: rating, año, duración, género */
+.hero__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 28px;
+}
+
+.hero__meta span {
+    font-size: 1.4rem;
+    background: rgba(255, 255, 255, 0.12);
+    padding: 6px 14px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.hero__buttons {
+    display: flex;
+    gap: 14px;
+}
+
+/* Botones */
+.btn {
+    padding: 13px 28px;
+    border-radius: 12px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    transition: var(--transition-normal);
+}
+
+.btn--primary {
+    background: linear-gradient(90deg, #4f46e5, #818cf8);
+    color: white;
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
+}
+
+.btn--primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 30px rgba(99, 102, 241, 0.6);
+}
+
+.btn--secondary {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+}
+
+.btn--secondary:hover {
+    background: rgba(255, 255, 255, 0.18);
+}
+
+
+/* =================================================================
+   7. POPULAR SIDEBAR (dentro del hero)
+   Ancho fijo, no crece ni se encoge (flex-shrink:0).
+   ================================================================= */
+
+.popular-sidebar {
+    width: 250px;
+    flex-shrink: 0;
+    padding: 18px;
+    border-radius: 20px;
+    background: rgba(5, 8, 30, 0.75);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.popular-sidebar__title {
+    font-size: 1.9rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    text-align: center;
+    
+}
+
+.popular-list {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.popular-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px;
+    border-radius: 12px;
+    transition: var(--transition-normal);
+    cursor: pointer;
+}
+
+.popular-item:hover {
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.popular-item__number {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--color-primary);
+    min-width: 36px;
+}
+
+
+/* =================================================================
+   9. SECCIONES DE CARRUSELES
+   ================================================================= */
+
+.section {
+    padding: 4px 0 5px;
+}
+
+.section__title {
+    padding-top: 0;
+    margin-top: 0;
+    font-size: 2.1rem;
+    font-weight: 700;
+    margin-bottom: 7px;
+}
+
+
+/* =================================================================
+   10. CARRUSEL HORIZONTAL
+   overflow-x:auto permite scroll lateral.
+   padding-bottom:8px da espacio para el efecto hover (translateY).
+   ================================================================= */
+
+.carousel {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding-bottom: 8px;
+}
+
+.carousel::-webkit-scrollbar { display: none; }
+
+
+/* =================================================================
+   11. TARJETA DE PELÍCULA
+   width fijo + flex-shrink:0 impide que se comprima en el carousel.
+   overflow:hidden necesario para respetar el border-radius.
+   ================================================================= */
+
+.movie-card {
+    width: 200px;
+    flex-shrink: 0;
+    border-radius: 16px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: var(--transition-normal);
+    cursor: pointer;
+}
+
+.movie-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 30px rgba(0, 0, 0, 0.5),
+                0 0 25px rgba(99, 102, 241, 0.35);
+    border-color: rgba(99, 102, 241, 0.4);
+}
+
+.movie-card img {
+    width: 100%;
+    height: 195px;       /* aspecto tipo póster: más alto que ancho */
+    object-fit: cover;   /* recorta sin deformar */
+    display: block;
+}
+
+.movie-card__info {
+    padding: 8px 10px;
+}
+
+.movie-card__title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;   /* "..." si el título es muy largo */
+}
+
+.movie-card__meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.3rem;
+    color: var(--color-text-secondary);
+}
+
+/*_______MOVIE CARD 2 RECOMENDADOS______ */
+
+
+.recommended-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 24px;
+    align-items: start;
+}
+
+/* Columna izquierda de carruseles.
+   min-width:0 evita que el carousel desborde la celda del grid. */
+.content-left {
+    min-width: 0;
+}
+
+
+.genres-widget {
+    width: 260px;
+    max-width: 100%;
+    padding: 20px;
+    border-radius: 20px;
+    min-height: 200px;
+    background: rgba(10, 15, 40, 0.85);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+.movie-card_2 {
+    width: 165px;
+    flex-shrink: 0;
+    border-radius: 16px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: var(--transition-normal);
+    cursor: pointer;
+}
+
+.movie-card_2:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 30px rgba(0, 0, 0, 0.5),
+                0 0 25px rgba(99, 102, 241, 0.35);
+    border-color: rgba(99, 102, 241, 0.4);
+}
+
+.movie-card_2 img {
+    width: 100%;
+    height: 185px;       /* aspecto tipo póster: más alto que ancho */
+    object-fit: cover;   /* recorta sin deformar */
+    display: block;
+}
+
+.movie-card_2__info {
+    padding: 8px 10px;
+}
+
+.movie-card_2__title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;   /* "..." si el título es muy largo */
+}
+
+.movie-card_2__meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.3rem;
+    color: var(--color-text-secondary);
+}
+
+/* Widget de géneros: caja fija glassmorphism */
+
+
+
+/* =================================================================
+   12. FOOTER
+   ================================================================= */
+
+.footer {
+    padding: 24px 0;
+    text-align: center;
+    color: var(--color-text-secondary);
+    font-size: 1.3rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.footer__content {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+
+/* =================================================================
+   13. RESPONSIVE
+   ================================================================= */
+
+/* Tablet: se oculta el panel Popular Hoy y el widget de géneros */
+@media (max-width: 1100px) {
+    .popular-sidebar {
+        display: none;
+    }
+
+    .content-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .genres-widget {
+        display: none;
+    }
+}
+
+/* Mobile: sidebar desaparece, app pasa a 1 columna */
+@media (max-width: 768px) {
+    .app {
+        grid-template-columns: 1fr;
+        padding: 10px;
+    }
+
+    .sidebar {
+        display: none;
+    }
+
+    .navbar__menu {
+        display: none;
+    }
+
+    .hero__title {
+        font-size: 3.8rem;
+    }
+
+    .search-bar input {
+        width: 160px;
+    }
+
+    .movie-card {
+        width: 150px;
+    }
+
+    .movie-card img {
+        height: 220px;
+    }
+}

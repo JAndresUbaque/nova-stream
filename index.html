@@ -3,150 +3,276 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
-        NovaStream - Streaming Futurista
-    </title>
-    <meta name="description" content="Plataforma de streaming fictiicia con diseño premiun">
+    <title>NovaStream - Streaming Futurista</title>
+    <meta name="description" content="Plataforma de streaming ficticia con diseño premium">
 
-    <!--CSS-->
     <link rel="stylesheet" href="css/reset.css"> 
     <link rel="stylesheet" href="css/variables.css">
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
+
     <div class="app">
-        <!-- Sidebar Izquierda -->
+
+        <!-- ========== SIDEBAR IZQUIERDA ========== -->
         <aside class="sidebar">
-            <!-- logo-->
+
             <div class="sidebar__logo">
                 <h1>NOVA<span>STREAM</span></h1>
             </div>
-                <!--Navegación Principal-->
+
             <nav class="sidebar__nav">
-                    <a href="#" class="nav-item nav-item--active">
-                    🏠 Inicio</a>
-                <a href="#" class="nav-item">
-                    🎬 Películas</a>
-                <a href="#" class="nav-item">
-                    📺 Series</a>
-                <a href="#" class="nav-item">
-                    🔥 Tendencias</a>
-                <a href="#" class="nav-item">
-                    ❤️ Mi Lista
+                <a href="#" class="nav-item nav-item--active">🏠 Inicio</a>
+                <a href="#" class="nav-item">🎬 Películas</a>
+                <a href="#" class="nav-item">📺 Series</a>
+                <a href="#" class="nav-item">🔥 Tendencias</a>
+                <a href="#" class="nav-item">📋 Mi Lista</a>
+                <a href="#" class="nav-item">❤️ Favoritos</a>
+                <a href="#" class="nav-item">🕗 Historial</a>
             </nav>
-          
+            <!-- ↑ IMPORTANTE: cada <a> tiene su cierre </a> -->
+
+            <div class="sidebar-widget">
+                <p>👑<br>
+                 Nova Premium</p>
+                <small>Disfruta sin anuncios, en 4K y offline</small>
+            </div>
+
         </aside>
-        
-        <!-- Contenido Principal -->
+        <!-- fin .sidebar -->
+
+        <!-- ========== CONTENIDO PRINCIPAL ========== -->
         <main class="main-content">
-         <!-- Navbar Superior-->
-         <header class="navbar">
 
-            <!-- Bonton Menu hamburguesa-->
-             <button class="menu-toggle" aria-label="Abrir menú">
-                ☰
-             </button>
-             
-             <!-- Navegacion horizontal-->
-              <nav class="navbar__menu">
-                <a href="#" class="nav-link">Inicio</a>
-                <a href="#" class="nav-link">Peliculas</a>
-                <a href="#" class="nav-link">Series</a>
-                <a href="#" class="nav-link">Tendencias</a>
-                <a href="#" class="nav-link">Mi Lista</a>
-              </nav>
+            <!-- NAVBAR -->
+            <header class="navbar">
+                <button class="menu-toggle" aria-label="Abrir menú">☰</button>
 
-              <!--Acciones derecha-->
-              <div class="navbar__actions">
+                <nav class="navbar__menu">
+                    <a href="#" class="nav-link">Inicio</a>
+                    <a href="#" class="nav-link">Películas</a>
+                    <a href="#" class="nav-link">Series</a>
+                    <a href="#" class="nav-link">Tendencias</a>
+                    <a href="#" class="nav-link">Mi Lista</a>
+                </nav>
 
-                <!--Buscador-->
-              <div class="search-bar">
-                <input 
-                    type="text"
-                    placeholder="Buscar peliculas, series..."
-                    aria-label="Buscar">
-              </div>
-
-              <!--Boton de Notificaciones-->
-              <button class="icon-button" aria-label="Notificaciones">
-                🛎️
-              </button>
-              
-              <!--Perfil Usuario-->
-              <div class="profile">
-                <img src="https://via.placeholder.com/32" alt="Foto de Perfil"  class="profile__image">
-              </div>
-              </div>
-         </header>
-        
-         <!--Hero Banner-->
-         <section class="hero">
-            <div class="hero__content">
-                
-                <!--Titulo principal-->
-                <h1 class="hero__title">INTERSTELLAR</h1>
-                
-                <!--Descripción-->
-                <p class="hero__description"> 
-                    La aventura que desafia los limites del tiempo y del espacio para salvar a la humanidad.
-                </p>
-            
-                <div class="hero__meta">
-                    <span>★ 8.9</span>
-                    <span>2014</span>
-                    <span>2h 49m</span>
-                    <span>Ciencia Ficción</span>
+                <div class="navbar__actions">
+                    <div class="search-bar">
+                        <input type="text" placeholder="Buscar películas, series..." aria-label="Buscar">
+                    </div>
+                    <button class="icon-button" aria-label="Notificaciones">🛎️</button>
+                    <div class="profile">
+                        <img src="https://i.pravatar.cc/150?img=12" alt="Foto de Perfil" class="profile__image">
+                    </div>
                 </div>
-           
-            
-                  <!--Botones de acciones-->
-                <div class="hero__buttons">
-                  <button class="btn btn--primary">
-                    ▶ Ver Ahora
-                  </button>
-                  <button class="btn btn--secondary">
-                    + Mi Lista
-                  </button>
+            </header>
+            <!-- fin .navbar -->
+
+            <!-- HERO BANNER -->
+            <section class="hero">
+                <div class="hero__content">
+                    <h1 class="hero__title">INTERSTELLAR</h1>
+                    <p class="hero__description">
+                        La aventura que desafía los límites del tiempo y del espacio para salvar a la humanidad.
+                    </p>
+                    <div class="hero__meta">c
+                        <span>★ 8.9</span>
+                        <span>2014</span>
+                        <span>2h 49m</span>
+                        <span>Ciencia Ficción</span>
+                    </div>
+                    <div class="hero__buttons">
+                        <button class="btn btn--primary">▶ Ver Ahora</button>
+                        <button class="btn btn--secondary">+ Mi Lista</button>
+                    </div>
                 </div>
+
+                <aside class="popular-sidebar">
+                    <h3 class="popular-sidebar__title">🔥 Popular Hoy</h3>
+                    <div class="popular-list">
+                        <div class="popular-item">
+                            <span class="popular-item__number">01</span>
+                            <div>
+                                <div class="movie-card__title" style="font-size:14px">Dune: Parte Dos</div>
+                                <div style="font-size:12px; color:var(--color-text-secondary)">8.8 ★</div>
+                            </div>
+                        </div>
+                        <div class="popular-item">
+                            <span class="popular-item__number">02</span>
+                            <div>
+                                <div class="movie-card__title" style="font-size:14px">Oppenheimer</div>
+                                <div style="font-size:12px; color:var(--color-text-secondary)">8.6 ★</div>
+                            </div>
+                        </div>
+                        <div class="popular-item">
+                            <span class="popular-item__number">03</span>
+                            <div>
+                                <div class="movie-card__title" style="font-size:14px">Interstellar</div>
+                                <div style="font-size:12px; color:var(--color-text-secondary)">8.9 ★</div>
+                            </div>
+                        </div>
+                        <div class="popular-item">
+                            <span class="popular-item__number">04</span>
+                            <div>
+                                <div class="movie-card__title" style="font-size:14px">Project Hail Mary</div>
+                                <div style="font-size:12px; color:var(--color-text-secondary)">8.3 ★</div>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+            </section>
+            <!-- fin .hero -->
+
+
+             <!-- Sección Tendencias -->
+            <section class="section">
+                        <h2 class="section__title">🔥 Tendencias Ahora</h2>
+                        <div class="carousel" id="trending-carousel">
+                            <div class="movie-card">
+                                <img src="https://picsum.photos/id/1015/300/400" alt="Interstellar">
+                                <div class="movie-card__info">
+                                    <div class="movie-card__title">Interstellar</div>
+                                    <div class="movie-card__meta"><span>★ 8.9</span><span>2014</span></div>
+                                </div>
+                            </div>
+                            <div class="movie-card">
+                                <img src="https://picsum.photos/id/201/300/400" alt="Dune">
+                                <div class="movie-card__info">
+                                    <div class="movie-card__title">Dune: Parte Dos</div>
+                                    <div class="movie-card__meta"><span>★ 8.8</span><span>2024</span></div>
+                                </div>
+                            </div>
+                            <div class="movie-card">
+                                <img src="https://picsum.photos/id/237/300/400" alt="Oppenheimer">
+                                <div class="movie-card__info">
+                                    <div class="movie-card__title">Oppenheimer</div>
+                                    <div class="movie-card__meta"><span>★ 8.6</span><span>2023</span></div>
+                                </div>
+                            </div>
+                            <div class="movie-card">
+                                <img src="https://picsum.photos/id/870/300/400" alt="The Batman">
+                                <div class="movie-card__info">
+                                    <div class="movie-card__title">The Batman</div>
+                                    <div class="movie-card__meta"><span>★ 8.4</span><span>2022</span></div>
+                                </div>
+                            </div>
+                            <div class="movie-card">
+                                <img src="https://image.tmdb.org/t/p/w500/3bhkrj58Vtu7enYsRolD1fZdja1.jpg" alt="The Godfather">
+                                <div class="movie-card__info">
+                                     <div class="movie-card__title">The Godfather</div>
+                                      <div class="movie-card__meta"><span>★ 9.2</span><span>1972</span></div>
+                                </div>
+                               </div>
+
+                            <div class="movie-card">
+                                <img src="https://image.tmdb.org/t/p/w500/q6y0Go1tsGEsmtFryDOJo3dEmqu.jpg" alt="The Shawshank Redemption">
+                                  <div class="movie-card__info">
+                                  <div class="movie-card__title">The Shawshank Redemption</div>
+                                  <div class="movie-card__meta"> <span>★ 9.3</span> <span>1994</span> </div>
+                                </div>
+                             </div>
+
+                            <div class="movie-card">
+                                <img src="https://image.tmdb.org/t/p/w500/d5iIlFn5s0ImszYzBPb8JPIfbXD.jpg" alt="Pulp Fiction">
+                                <div class="movie-card__info">
+                                    <div class="movie-card__title">Pulp Fiction</div>
+                                    <div class="movie-card__meta"><span>★ 8.9</span><span>1994</span>
+                                 </div>                       
+                            </div>
+                        </div>
+            </section>
+
+            <!-- ZONA INFERIOR: carruseles + widget géneros -->
+            <div class="content-layout">
+
+                <div class="content-left">
+
+                    <!-- Sección Recomendados -->
+                    <section class="section">
+                        <h2 class="section__title">✨ Recomendado para ti</h2>
+                        <div class="recommended-row">
+                        <div class="carousel" id="recommended-carousel">
+                            <div class="movie-card_2">
+                                <img src="https://picsum.photos/id/133/300/400" alt="The Witcher">
+                                <div class="movie-card_2__info">
+                                    <div class="movie-card_2__title">The Witcher</div>
+                                    <div class="movie-card_2__meta"><span>★ 8.2</span><span>Serie</span></div>
+                                </div>
+                            </div>
+                            <div class="movie-card_2">
+                                <img src="https://picsum.photos/id/201/300/400" alt="Dune">
+                                <div class="movie-card_2__info">
+                                    <div class="movie-card_2__title">Dune: Parte Dos</div>
+                                    <div class="movie-card_2__meta"><span>★ 8.8</span><span>2024</span></div>
+                                </div>
+                            </div>
+                            <div class="movie-card_2">
+                                <img src="https://picsum.photos/id/870/300/400" alt="The Batman">
+                                <div class="movie-card_2__info">
+                                    <div class="movie-card_2__title">The Batman</div>
+                                    <div class="movie-card_2__meta"><span>★ 8.4</span><span>2022</span></div>
+                                </div>
+                            </div>
+                            <div class="movie-card_2">
+                                <img src="https://picsum.photos/id/1025/300/400" alt="Blade Runner">
+                                <div class="movie-card_2__info">
+                                    <div class="movie-card_2__title">Blade Runner 2049</div>
+                                    <div class="movie-card_2__meta"><span>★ 8.0</span><span>2017</span></div>
+                                </div>
+                            </div>
+                            <div class="movie-card">
+                               <img src="https://image.tmdb.org/t/p/w500/clolk7rB5lAjs41SD0Vt6IXYLMm.jpg" alt="Fight Club">
+                               <div class="movie-card__info">
+                                  <div class="movie-card__title">Fight Club</div>
+                                  <div class="movie-card__meta"><span>★ 8.8</span><span>1999</span></div>
+                                </div>
+                            </div>
+
+                            <div class="movie-card">
+                                <img src="https://image.tmdb.org/t/p/w500/lyQBXzOQSuE59IsHyhrp0qIiPAz.jpg" alt="Forrest Gump">
+                                <div class="movie-card__info">
+                                   <div class="movie-card__title">Forrest Gump</div>
+                                   <div class="movie-card__meta"> <span>★ 8.8</span><span>1994</span>  </div>
+                                </div>
+                            </div>
+
+                            <div class="movie-card">
+                                <img src="https://image.tmdb.org/t/p/w500/8VG8fDNiy50H4FedGwdSVUPoaJe.jpg" alt="The Matrix">
+                                <div class="movie-card__info">
+                                 <div class="movie-card__title">The Matrix</div>
+                                 <div class="movie-card__meta"><span>★ 8.7</span><span>1999</span>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+
+                         <!-- Widget géneros (se llenará con JS luego) -->
+                         <aside class="genres-widget">
+                    <h3 class="section__title" style="font-size:1.8rem">🎭 Géneros</h3>
+                          </aside>
+                        </div>
+                    </section>
+
+                </div>
+                <!-- fin .content-left -->
+
+
             </div>
-         </section>
-         <!-- sección Tendencias ahora-->
-         <section class="section">
+            <!-- fin .content-layout -->
 
-                <h2 class="section__title">
-                🔥 Tendencias Ahora
-                </h2>
-                <div class="carousel" id="trending-carousel">
-                <!-- aqui iran las cards de las peliculas-->
-                </div>
-          </section>
-          <section class="section">
-            <h2 class="section__title">
-             ✨ Recomendado para ti    
-            </h2>
-            <div class="carousel" id="recommended-carousel">
-            <!-- aqui iran las tarjestas del peliculas-->
-            </div>
-          </section>
         </main>
+        <!-- fin .main-content -->
 
-        <aside class="popular-sidebar">
-            <h3 class="popular-sidebar__title">
-                🔥 Popular Hoy
-            </h3>
+    </div>
+    <!-- fin .app -->
 
-            <div class="popular-list" id="popular-list">
-                <!--las pelis populares se pondran generan con JS-->
-            </div>
-        </aside>
-
-        <footer class="footer">
-            <div class="footer__content">
-                <p>&copy; 2026 NovaStream - Proyecto Portafolio Profesional &lt;Andres/Dev&gt; </p>
-                <p>Desarrollado con HTML5, CSS3 y JavaScript Vanilla</p>
-            </div>
-        </footer>
+    <!-- FOOTER fuera del .app pero dentro del body -->
+    <footer class="footer">
+        <div class="footer__content">
+            <p>&copy; 2026 NovaStream - Proyecto Portafolio Profesional &lt;Andres/Dev&gt;</p>
+            <p>Desarrollado con HTML5, CSS3 y JavaScript Vanilla</p>
         </div>
-    
+    </footer>
+    <script src="js/main.js"></script>
 </body>
 </html>
