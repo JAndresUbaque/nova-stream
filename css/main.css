@@ -390,6 +390,13 @@ body {
     margin-bottom: 7px;
 }
 
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
 
 /* =================================================================
    10. CARRUSEL HORIZONTAL
@@ -403,6 +410,7 @@ body {
     overflow-x: auto;
     scrollbar-width: none;
     padding-bottom: 8px;
+
 }
 
 .carousel::-webkit-scrollbar { display: none; }
@@ -461,30 +469,21 @@ body {
 /*_______MOVIE CARD 2 RECOMENDADOS______ */
 
 
-.recommended-row {
+.content-layout{
     display: grid;
     grid-template-columns: 1fr auto;
     gap: 24px;
     align-items: start;
-}
 
-/* Columna izquierda de carruseles.
-   min-width:0 evita que el carousel desborde la celda del grid. */
-.content-left {
+   
+}
+ .content-left{
     min-width: 0;
-}
+    
+ }
 
 
-.genres-widget {
-    width: 260px;
-    max-width: 100%;
-    padding: 20px;
-    border-radius: 20px;
-    min-height: 200px;
-    background: rgba(10, 15, 40, 0.85);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-}
+
 .movie-card_2 {
     width: 165px;
     flex-shrink: 0;
@@ -510,11 +509,11 @@ body {
     display: block;
 }
 
-.movie-card_2__info {
+.movie-card_2_info {
     padding: 8px 10px;
 }
 
-.movie-card_2__title {
+.movie-card_2_title {
     font-size: 1.2rem;
     font-weight: 600;
     white-space: nowrap;
@@ -522,16 +521,29 @@ body {
     text-overflow: ellipsis;   /* "..." si el título es muy largo */
 }
 
-.movie-card_2__meta {
+.movie-card_2_meta {
     display: flex;
     justify-content: space-between;
     font-size: 1.3rem;
     color: var(--color-text-secondary);
 }
 
+
+
+
 /* Widget de géneros: caja fija glassmorphism */
 
-
+.genres-widget {
+    width: 260px;
+    max-width: 100%;
+    padding: 20px;
+    border-radius: 20px;
+    min-height: 200px;
+    background: rgba(10, 15, 40, 0.85);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    margin-top: 16px;
+}
 
 /* =================================================================
    12. FOOTER
@@ -552,6 +564,30 @@ body {
 }
 
 
+.carousel-controls {
+    display: flex;
+    gap:8px;
+}
+
+.carousel-btn {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition-normal);
+}
+
+.carousel-btn:hover {
+    background: rgba(99, 102, 241, 0.6);
+    transform: scale(1.1);
+}
 /* =================================================================
    13. RESPONSIVE
    ================================================================= */
