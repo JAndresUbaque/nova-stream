@@ -22,13 +22,13 @@
             </div>
 
             <nav class="sidebar__nav">
-                <a href="#" class="nav-item nav-item--active">🏠 Inicio</a>
-                <a href="#" class="nav-item">🎬 Películas</a>
-                <a href="#" class="nav-item">📺 Series</a>
-                <a href="#" class="nav-item">🔥 Tendencias</a>
-                <a href="#" class="nav-item">📋 Mi Lista</a>
-                <a href="#" class="nav-item">❤️ Favoritos</a>
-                <a href="#" class="nav-item">🕗 Historial</a>
+                <a href="#" class="nav-item nav-item--active" aria-hidden="true" >🏠 Inicio</a>
+                <a href="#" class="nav-item" aria-hidden="true">🎬 Películas</a>
+                <a href="#" class="nav-item" aria-hidden="true">📺 Series</a>
+                <a href="#" class="nav-item" aria-hidden="true">🔥 Tendencias</a>
+                <a href="#" class="nav-item" aria-hidden="true">📋 Mi Lista</a>
+                <a href="#" class="nav-item" aria-hidden="true">❤️ Favoritos</a>
+                <a href="#" class="nav-item" aria-hidden="true">🕗 Historial</a>
             </nav>
             <!-- ↑ IMPORTANTE: cada <a> tiene su cierre </a> -->
 
@@ -68,117 +68,121 @@
             </header>
             <!-- fin .navbar -->
 
-            <!-- HERO BANNER -->
-            <section class="hero">
-                <div class="hero__content">
-                    <h1 class="hero__title">INTERSTELLAR</h1>
-                    <p class="hero__description">
-                        La aventura que desafía los límites del tiempo y del espacio para salvar a la humanidad.
-                    </p>
-                    <div class="hero__meta">c
-                        <span>★ 8.9</span>
-                        <span>2014</span>
-                        <span>2h 49m</span>
-                        <span>Ciencia Ficción</span>
-                    </div>
-                    <div class="hero__buttons">
-                        <button class="btn btn--primary">▶ Ver Ahora</button>
-                        <button class="btn btn--secondary">+ Mi Lista</button>
-                    </div>
-                </div>
+           <!-- HERO CARRUSEL -->
+<section class="hero" id="hero-carousel">
 
-                <aside class="popular-sidebar">
-                    <h3 class="popular-sidebar__title">🔥 Popular Hoy</h3>
-                    <div class="popular-list">
-                        <div class="popular-item">
-                            <span class="popular-item__number">01</span>
-                            <div>
-                                <div class="movie-card__title" style="font-size:14px">Dune: Parte Dos</div>
-                                <div style="font-size:12px; color:var(--color-text-secondary)">8.8 ★</div>
-                            </div>
-                        </div>
-                        <div class="popular-item">
-                            <span class="popular-item__number">02</span>
-                            <div>
-                                <div class="movie-card__title" style="font-size:14px">Oppenheimer</div>
-                                <div style="font-size:12px; color:var(--color-text-secondary)">8.6 ★</div>
-                            </div>
-                        </div>
-                        <div class="popular-item">
-                            <span class="popular-item__number">03</span>
-                            <div>
-                                <div class="movie-card__title" style="font-size:14px">Interstellar</div>
-                                <div style="font-size:12px; color:var(--color-text-secondary)">8.9 ★</div>
-                            </div>
-                        </div>
-                        <div class="popular-item">
-                            <span class="popular-item__number">04</span>
-                            <div>
-                                <div class="movie-card__title" style="font-size:14px">Project Hail Mary</div>
-                                <div style="font-size:12px; color:var(--color-text-secondary)">8.3 ★</div>
-                            </div>
-                        </div>
-                    </div>
-                </aside>
-            </section>
+    <!-- Capa de fondos (absoluta, detrás de todo) -->
+    <div class="hero-slides" id="hero-slides">
+        <div class="hero-slide active"></div>
+        <div class="hero-slide" ></div>
+        <div class="hero-slide" ></div>
+    </div>
+
+    <!-- Contenido de texto (siempre encima de las imágenes) -->
+    <div class="hero__content">
+        <h1 class="hero__title" id="hero-title">INTERSTELLAR</h1>
+        <p class="hero__description" id="hero-description">La aventura que desafía los límites del tiempo y del espacio para salvar a la humanidad.</p>
+        <div class="hero__meta" id="hero-meta">
+            <span id="hero-rating">★ 8.9</span>
+            <span id="hero-year">2014</span>
+            <span id="hero-duration">2h 49m</span>
+            <span id="hero-genre">Ciencia Ficción</span>
+        </div>
+        <div class="hero__buttons">
+            <button class="btn btn--primary">▶ Ver Ahora</button>
+            <button class="btn btn--secondary">+ Mi Lista</button>
+        </div>
+    </div>
+
+    <!-- Popular Sidebar (fijo, centrado verticalmente) -->
+    <aside class="popular-sidebar">
+        <h3 class="popular-sidebar__title">🔥 Popular Hoy</h3>
+        <div class="popular-list">
+            <div class="popular-item">
+                <span class="popular-item__number">01</span>
+                <div>
+                    <div class="movie-card__title" style="font-size:14px">Dune: Parte Dos</div>
+                    <div style="font-size:12px; color:var(--color-text-secondary)">8.8 ★</div>
+                </div>
+            </div>
+            <div class="popular-item">
+                <span class="popular-item__number">02</span>
+                <div>
+                    <div class="movie-card__title" style="font-size:14px">Oppenheimer</div>
+                    <div style="font-size:12px; color:var(--color-text-secondary)">8.6 ★</div>
+                </div>
+            </div>
+            <div class="popular-item">
+                <span class="popular-item__number">03</span>
+                <div>
+                    <div class="movie-card__title" style="font-size:14px">Interstellar</div>
+                    <div style="font-size:12px; color:var(--color-text-secondary)">8.9 ★</div>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Dots -->
+    <div class="hero-dots" id="hero-dots"></div>
+</section>
             <!-- fin .hero -->
 
 
              <!-- Sección Tendencias -->
             <section class="section">
-                    <div class="section-header">
+                    
                         <h2 class="section__title">🔥 Tendencias Ahora</h2>
-                        <div class="carousel-controls">
+                       
+                    <div class="carousel-wrapper">
                             <button class="carousel-btn prev" data-carousel="trending-carousel" aria-label="Anterior">⪡</button>
-                            <button class="carousel-btn next" data-carousel="trending-carousel" aria-label="Siguiente">⪢</button>
-                        </div>
-                    </div>
-                    <div class="carousel" id="trending-carousel">
-                            <div class="movie-card">
-                                <img src="https://picsum.photos/id/1015/300/400" alt="Interstellar">
-                                <div class="movie-card__info">
-                                    <div class="movie-card__title">Interstellar</div>
-                                    <div class="movie-card__meta"><span>★ 8.9</span><span>2014</span></div>
-                                </div>
-                            </div>
-                            <div class="movie-card">
-                                <img src="https://picsum.photos/id/201/300/400" alt="Dune">
-                                <div class="movie-card__info">
-                                    <div class="movie-card__title">Dune: Parte Dos</div>
-                                    <div class="movie-card__meta"><span>★ 8.8</span><span>2024</span></div>
-                                </div>
-                            </div>
-                            <div class="movie-card">
-                                <img src="https://picsum.photos/id/237/300/400" alt="Oppenheimer">
-                                <div class="movie-card__info">
-                                    <div class="movie-card__title">Oppenheimer</div>
-                                    <div class="movie-card__meta"><span>★ 8.6</span><span>2023</span></div>
-                                </div>
-                            </div>
-                            <div class="movie-card">
-                                <img src="https://picsum.photos/id/870/300/400" alt="The Batman">
+                            
+                    
+                          <div class="carousel" id="trending-carousel">
+                            <div class="movie-card" data-id="the-batman">
+                                <img src="https://image.tmdb.org/t/p/w500/74xTEgt7R36Fpooo50r9T25onhq.jpg" alt="Batman">
                                 <div class="movie-card__info">
                                     <div class="movie-card__title">The Batman</div>
                                     <div class="movie-card__meta"><span>★ 8.4</span><span>2022</span></div>
                                 </div>
                             </div>
-                            <div class="movie-card">
+                            <div class="movie-card" data-id="the-godfather">
                                 <img src="https://image.tmdb.org/t/p/w500/3bhkrj58Vtu7enYsRolD1fZdja1.jpg" alt="The Godfather">
                                 <div class="movie-card__info">
                                      <div class="movie-card__title">The Godfather</div>
                                       <div class="movie-card__meta"><span>★ 9.2</span><span>1972</span></div>
                                 </div>
                             </div>
-
-                            <div class="movie-card">
-                                <img src="https://image.tmdb.org/t/p/w500/q6y0Go1tsGEsmtFryDOJo3dEmqu.jpg" alt="The Shawshank Redemption">
+                            <div class="movie-card" data-id="dune-part-two">
+                                <img src="https://image.tmdb.org/t/p/w500/1pdfLvkbY9ohJlCjQH2CZjjYVvJ.jpg" alt="Dune">
+                                <div class="movie-card__info">
+                                    <div class="movie-card__title">Dune: Parte Dos</div>
+                                    <div class="movie-card__meta"><span>★ 8.8</span><span>2024</span></div>
+                                </div>
+                            </div>
+                             <div class="movie-card" data-id="spider-man-no-way-home">
+                                <img src="https://image.tmdb.org/t/p/w500/1g0dhYtq4irTY1GPXvft6k4YLjm.jpg" alt="Spider-Man">
+                                <div class="movie-card__info">
+                                    <div class="movie-card__title">Spider-Man: No Way Home</div>
+                                    <div class="movie-card__meta"><span>★ 8.1</span><span>2021</span></div>
+                                </div>
+                            </div>
+                            <div class="movie-card" data-id="oppenheimer">
+                                <img src="https://image.tmdb.org/t/p/w500/ptpr0kGAckfQkJeJIt8st5dglvd.jpg" alt="Oppenheimer">
+                                <div class="movie-card__info">
+                                    <div class="movie-card__title">Oppenheimer</div>
+                                    <div class="movie-card__meta"><span>★ 8.6</span><span>2023</span></div>
+                                </div>
+                            </div>
+                           
+                            <div class="movie-card" data-id="fight-club">
+                                <img src="https://image.tmdb.org/t/p/w500/bptfVGEQuv6vDTIMVCHjJ9Dz8PX.jpg" alt="Fight Club">
                                   <div class="movie-card__info">
-                                  <div class="movie-card__title">The Shawshank Redemption</div>
-                                  <div class="movie-card__meta"> <span>★ 9.3</span> <span>1994</span> </div>
+                                  <div class="movie-card__title">Fight Club</div>
+                                  <div class="movie-card__meta"> <span>★ 8.8</span> <span>1999</span> </div>
                                 </div>
                             </div>
 
-                            <div class="movie-card">
+                            <div class="movie-card" data-id="pulp-fiction">
                                 <img src="https://image.tmdb.org/t/p/w500/d5iIlFn5s0ImszYzBPb8JPIfbXD.jpg" alt="Pulp Fiction">
                                 <div class="movie-card__info">
                                     <div class="movie-card__title">Pulp Fiction</div>
@@ -186,7 +190,10 @@
                                  </div>                       
                             </div>
                             </div>
-                    </div>        
+                        </div> 
+                     
+                       <button class="carousel-btn next" data-carousel="trending-carousel" aria-label="Siguiente">⪢</button>
+                    </div>
             </section>
 
             <!-- ZONA INFERIOR: carruseles + widget géneros -->
@@ -196,84 +203,84 @@
 
                     <!-- Sección Recomendados -->
                     <section class="section">
-                        <div class="section-header">
+                       
                          <h2 class="section__title">✨ Recomendado para ti</h2>
-                            <div class="carousel-controls">
-                                <button class="carousel-btn prev" data-carousel="recommended-carousel" aria-label="Anterior">⪡</button>
-                                <button class="carousel-btn next" data-carousel="recommended-carousel" aria-label="Siguiente">⪢</button>
-                           </div>
-                        </div>
-                    <!-- dentro de recommend-row estan las card -->
-                    <div class="recommended-row">
-                        <div class="carousel" id="recommended-carousel">
+                        
 
-                            <div class="movie-card_2">
-                                <img src="https://picsum.photos/id/133/300/400" alt="The Witcher">
+                        <div class="carousel-wrapper">
+                                <button class="carousel-btn prev" data-carousel="recommended-carousel" aria-label="Anterior">⪡</button>
+                         
+                         <!-- dentro de recommend-row estan las card -->
+                  
+                            <div class="carousel" id="recommended-carousel">
+
+                            <div class="movie-card_2" data-id="the-witcher">
+                                <img src="https://image.tmdb.org/t/p/w500/cZ0d3rtvXPVvuiX22sP79K3Hmjz.jpg" alt="The Witcher">
                                 <div class="movie-card_2_info">
                                     <div class="movie-card_2_title">The Witcher</div>
                                     <div class="movie-card_2_meta"><span>★ 8.2</span><span>Serie</span></div>
                                 </div>
                             </div>
                             
-                            <div class="movie-card_2">
-                                <img src="https://picsum.photos/id/201/300/400" alt="Dune">
+                            <div class="movie-card_2" data-id="stranger-things">
+                                <img src="https://image.tmdb.org/t/p/w500/uOOtwVbSr4QDjAGIifLDwpb2Pdl.jpg" alt="Stranger Things">
                                 <div class="movie-card_2_info">
-                                    <div class="movie-card_2_title">Dune: Parte Dos</div>
-                                    <div class="movie-card_2_meta"><span>★ 8.8</span><span>2024</span></div>
+                                    <div class="movie-card_2_title">Stranger Things</div>
+                                    <div class="movie-card_2_meta"><span>★ 8.8</span><span>2016</span></div>
                                 </div>
                             </div>
 
-                            <div class="movie-card_2">
-                                <img src="https://picsum.photos/id/870/300/400" alt="The Batman">
+                            <div class="movie-card_2" data-id="the-mandalorian">
+                                <img src="https://image.tmdb.org/t/p/w500/sWgBv7LV2PRoQgkxwlibdGXKz1S.jpg" alt="The Mandalorian">
                                 <div class="movie-card_2_info">
-                                    <div class="movie-card_2_title">The Batman</div>
-                                    <div class="movie-card_2_meta"><span>★ 8.4</span><span>2022</span></div>
+                                    <div class="movie-card_2_title">The Mandalorian</div>
+                                    <div class="movie-card_2_meta"><span>★ 8.4</span><span>2019</span></div>
                                 </div>
                             </div>
 
-                            <div class="movie-card_2">
-                                <img src="https://picsum.photos/id/1025/300/400" alt="Blade Runner">
+                            <div class="movie-card_2" data-id="peaky-blinders">
+                                <img src="https://image.tmdb.org/t/p/w500/vUUqzWa2LnHIVqkaKVlVGkVcZIW.jpg" alt="Peaky Blinders">
                                 <div class="movie-card_2_info">
-                                    <div class="movie-card_2_title">Blade Runner 2049</div>
+                                    <div class="movie-card_2_title">Peaky Blinders</div>
                                     <div class="movie-card_2_meta"><span>★ 8.0</span><span>2017</span></div>
                                 </div>
                             </div>
 
-                            <div class="movie-card_2">
-                               <img src="https://image.tmdb.org/t/p/w500/clolk7rB5lAjs41SD0Vt6IXYLMm.jpg" alt="Fight Club">
+                            <div class="movie-card_2" data-id="the-last-of-us">
+                               <img src="https://image.tmdb.org/t/p/w500/uKvVjHNqB5VmOrdxqAt2F7J78ED.jpg" alt="The Last of Us">
                                <div class="movie-card_2_info">
-                                  <div class="movie-card_2_title">Fight Club</div>
-                                  <div class="movie-card_2_meta"><span>★ 8.8</span><span>1999</span></div>
+                                  <div class="movie-card_2_title">The Last of Us</div>
+                                  <div class="movie-card_2_meta"><span>★ 8.8</span><span>2023 </span></div>
                                 </div>
                             </div>
 
-                            <div class="movie-card_2">
-                                <img src="https://image.tmdb.org/t/p/w500/lyQBXzOQSuE59IsHyhrp0qIiPAz.jpg" alt="Forrest Gump">
+                            <div class="movie-card_2" data-id="the-green-mile">
+                                <img src="https://image.tmdb.org/t/p/w500/velWPhVMQeQKcxggNEU8YmIo52R.jpg" alt="The Green Mile">
                                 <div class="movie-card_2_info">
-                                   <div class="movie-card_2_title">Forrest Gump</div>
-                                   <div class="movie-card_2_meta"> <span>★ 8.8</span><span>1994</span>  </div>
+                                   <div class="movie-card_2_title">The Green Mile</div>
+                                   <div class="movie-card_2_meta"> <span>★ 8.8</span><span>1999</span>  </div>
                                 </div>
                             </div>
 
-                            <div class="movie-card_2">
-                                <img src="https://image.tmdb.org/t/p/w500/8VG8fDNiy50H4FedGwdSVUPoaJe.jpg" alt="The Matrix">
+                            <div class="movie-card_2" data-id="blade-runner-2049">
+                                <img src="https://image.tmdb.org/t/p/w500/gajva2L0rPYkEWjzgFlBXCAVBE5.jpg" alt="Blade Runner 2049">
                                 <div class="movie-card_2_info">
-                                 <div class="movie-card_2_title">The Matrix</div>
-                                 <div class="movie-card_2_meta"><span>★ 8.7</span><span>1999</span>
+                                 <div class="movie-card_2_title">Blade Runner 2049</div>
+                                 <div class="movie-card_2_meta"><span>★ 8.0</span><span>2017</span>
                                  </div>
                                 </div>
                             </div>
 
-                              <div class="movie-card_2">
-                                <img src="https://image.tmdb.org/t/p/w500/lyQBXzOQSuE59IsHyhrp0qIiPAz.jpg" alt="Forrest Gump">
+                              <div class="movie-card_2" data-id="forrest-gump">
+                                <img src="https://image.tmdb.org/t/p/w500/arw2vcBveWOVZr6pxd9XTd1TdQa.jpg" alt="Forrest Gump">
                                 <div class="movie-card_2_info">
                                    <div class="movie-card_2_title">Forrest Gump</div>
                                    <div class="movie-card_2_meta"> <span>★ 8.8</span><span>1994</span>  </div>
                                 </div>
                             </div>
 
-                            <div class="movie-card_2">
-                                <img src="https://image.tmdb.org/t/p/w500/8VG8fDNiy50H4FedGwdSVUPoaJe.jpg" alt="The Matrix">
+                            <div class="movie-card_2" data-id="the-matrix">
+                                <img src="https://image.tmdb.org/t/p/w500/f89U3ADr1oiB1s9GkdPOEpXUk5H.jpg" alt="The Matrix">
                                 <div class="movie-card_2_info">
                                  <div class="movie-card_2_title">The Matrix</div>
                                  <div class="movie-card_2_meta"><span>★ 8.7</span><span>1999</span>
@@ -281,7 +288,10 @@
                                  </div>
                             </div>                    
                                          
-                        </div>
+                            </div>
+                    
+                        
+                        <button class="carousel-btn next" data-carousel="recommended-carousel" aria-label="Siguiente">⪢</button>
                      </div>
 
                     </section>
@@ -291,6 +301,9 @@
 
                   <aside class="genres-widget">
                          <h3 class="section__title" style="font-size:1.8rem">🎭 Géneros</h3>
+                         <div class="genres-grid" id="genres-grid">
+        <!-- Se llenará con JS -->
+                         </div>
                   </aside>
             </div>
             <!-- fin .content-layout -->
@@ -304,10 +317,33 @@
     <!-- FOOTER fuera del .app pero dentro del body -->
     <footer class="footer">
         <div class="footer__content">
-            <p>&copy; 2026 NovaStream - Proyecto Portafolio Profesional &lt;Andres/Dev&gt;</p>
+            <p>&copy; 2026 NovaStream - Proyecto Practico Portafolio Profesional &lt;Andres/Dev&gt;</p>
             <p>Desarrollado con HTML5, CSS3 y JavaScript Vanilla</p>
         </div>
     </footer>
+
+    <!-- MODAL  -->
+
+    <div class="modal" id="movie-modal">
+        <div class="modal-content">
+            <button class="modal-close" id="modal-close">x</button>
+
+            <div class="modal-poster">
+                <img id="modal-image" src="" alt="">
+            </div>
+
+            <div class="modal-info">
+                <h2 id="modal-title"></h2>
+                <div class="modal-meta" id="modal-meta"></div>
+                <p class="modal-description" id="modal-description"></p>
+
+                <div class="modal-buttons">
+                    <button class="btn btn--primary">▶ Reproducir</button>
+                    <button class="btn btn--secondary">+ Mi Lista</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="js/main.js"></script>
 </body>
 </html>

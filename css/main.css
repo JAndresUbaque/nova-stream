@@ -36,17 +36,18 @@ body {
 
 .sidebar {
     position: sticky;
-    top: 16px;                        /* distancia desde el tope al hacer scroll */
-    max-height: calc(100vh - 30px);   /* no supera la altura de la ventana */
+    top: 14px;                        /* distancia desde el tope al hacer scroll */
+    max-height: calc(100vh - 35px);   /* no supera la altura de la ventana */
     overflow-y: auto;
     scrollbar-width: none;
+    
 
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 
     border-radius: 24px;
-    padding: 24px 0 16px 0; 
+    padding: 22px 0 16px 0; 
 
     background: rgba(10, 15, 40, 0.75);
     backdrop-filter: blur(20px);
@@ -57,11 +58,11 @@ body {
 
 /* Logo con degradado morado → cyan */
 .sidebar__logo {
-    padding: 0 24px 20px 24px; 
+    padding: 0 24px 16px 24px; 
 }
 
 .sidebar__logo h1 {
-    font-size: 2.75rem;
+    font-size: 2.7rem;
     font-weight: 800;
     letter-spacing: 1.5px;
     background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
@@ -74,16 +75,16 @@ body {
 .sidebar__nav {
     display: flex;
     flex-direction: column;
-    gap: 4px;
-    padding: 0 16px;
+    gap: 3px;
+    padding: 0 15px;
     flex: 1;
 }
 
 .nav-item {
     display: flex;
     align-items: center;
-    gap: 10px;
-    padding: 10px 20px;
+    gap: 8px;
+    padding: 9px 18px;
     border-radius: 12px;
     font-size: 1.4rem;
     color: var(--color-text-secondary);
@@ -104,8 +105,8 @@ body {
 
 /* Widget Premium al fondo */
 .sidebar-widget {
-    margin: 18px;
-    padding: 18px;
+    margin: 12px 18px 12px 18px;
+    padding: 14px;
     border-radius: 16px;
     text-align: center;
     font-size: 1.4rem;
@@ -221,9 +222,14 @@ body {
    2 capas de background: degradado encima (legibilidad) + imagen.
    flex pone el contenido de texto a la izquierda y el panel
    "Popular Hoy" a la derecha.
+   =
+/* =================================================================
+   6. HERO CARRUSEL
    ================================================================= */
 
 .hero {
+    position: relative;
+    overflow: hidden;
     display: flex;
     justify-content: space-between;
     align-items: stretch;
@@ -232,27 +238,55 @@ body {
     padding: 36px 32px;
     border-radius: 24px;
     border: 0.5px solid rgba(255, 255, 255, 0.08);
-
-    background-image:
-        linear-gradient(
-            to right,
-            rgba(0, 0, 0, 0.85) 30%,
-            rgba(0, 0, 0, 0.2)
-        ),
-        url('https://picsum.photos/id/1015/1920/1080');
-
-    background-size: cover;
-    background-position: center;
+    background: #04091d; /* fallback mientras cargan las imágenes */
     box-shadow: 0 0 40px rgba(99, 102, 241, 0.2);
 }
 
-/* Texto del hero: ocupa el espacio disponible */
+/* Capa de fondos absoluta que cubre todo el hero */
+.hero-slides {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    border-radius: 24px;
+    overflow: hidden;
+}
+
+.hero-slide {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1.2s ease-in-out;
+}
+
+.hero-slide.active {
+    opacity: 1;
+    z-index: 1;
+}
+
+/* Degradado oscuro a la izquierda para legibilidad del texto */
+.hero-slide::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.85) 30%,
+        rgba(0, 0, 0, 0.2)
+    );
+}
+
+/* Contenido de texto por encima de los slides */
 .hero__content {
+    position: relative;
+    z-index: 2;
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
     max-width: 600px;
+    padding-top: 8%;
 }
 
 .hero__title {
@@ -264,14 +298,13 @@ body {
 }
 
 .hero__description {
-    font-size: 1.7rem;
+    font-size: 1.5rem;
     color: rgba(255, 255, 255, 0.8);
     line-height: 1.6;
     margin-bottom: 20px;
     max-width: 480px;
 }
 
-/* Píldoras: rating, año, duración, género */
 .hero__meta {
     display: flex;
     flex-wrap: wrap;
@@ -292,6 +325,48 @@ body {
     gap: 14px;
 }
 
+/* Sidebar Popular: encima de los slides y centrado verticalmente */
+.popular-sidebar {
+    position: relative;
+    z-index: 2;
+    align-self: center;      /* ← clave: se centra respecto al alto del hero */
+    width: 250px;
+    flex-shrink: 0;
+    padding: 18px;
+    border-radius: 20px;
+    background: rgba(5, 8, 30, 0.75);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Dots del carrusel */
+.hero-dots {
+    position: absolute;
+    bottom: 18px;
+    left: 40px;
+    z-index: 3;
+    display: flex;
+    gap: 10px;
+}
+
+.hero-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.35);
+    cursor: pointer;
+    transition: var(--transition-normal);
+}
+
+.hero-dot:hover {
+    background: rgba(255, 255, 255, 0.6);
+}
+
+.hero-dot.active {
+    background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+    width: 26px;
+    border-radius: 6px;
+}
 /* Botones */
 .btn {
     padding: 13px 28px;
@@ -328,15 +403,7 @@ body {
    Ancho fijo, no crece ni se encoge (flex-shrink:0).
    ================================================================= */
 
-.popular-sidebar {
-    width: 250px;
-    flex-shrink: 0;
-    padding: 18px;
-    border-radius: 20px;
-    background: rgba(5, 8, 30, 0.75);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
+
 
 .popular-sidebar__title {
     font-size: 1.9rem;
@@ -390,12 +457,6 @@ body {
     margin-bottom: 7px;
 }
 
-.section-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 12px;
-}
 
 
 /* =================================================================
@@ -542,8 +603,72 @@ body {
     background: rgba(10, 15, 40, 0.85);
     backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.08);
-    margin-top: 16px;
+    margin-top: 24px;
 }
+
+.genres-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-top: 16px;
+    margin-left: -8px; 
+}
+
+.genre-chip {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: visible;
+}
+
+.genre-chip:hover {
+    background: rgba(99, 102, 241, 0.25);
+    border-color: var(--color-primary);
+    transform: scale(1.12);
+}
+
+.genre-chip.active {
+    background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+    color: white;
+    border-color: transparent;
+}
+
+.genre-chip::after {
+    content: attr(data-name);
+    position: absolute;
+    top: -45px;
+    left: 50%;
+    transform: translateX(-50%) translateY(8px);
+    background: rgba(15, 23, 42, 0.95);
+    color: white;
+    font-size: 1.25rem;
+    padding: 6px 14px;
+    border-radius: 20px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    z-index: 20;
+    pointer-events: none;
+}
+
+.genre-chip:hover::after,
+.genre-chip.show-tooltip::after {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
 
 /* =================================================================
    12. FOOTER
@@ -564,16 +689,29 @@ body {
 }
 
 
-.carousel-controls {
+.carousel-wrapper {
+    position: relative;
     display: flex;
-    gap:8px;
+    align-items: center;
+    gap: 12px;
+    margin-top: 12px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
-.carousel-btn {
-    width: 42px;
-    height: 42px;
+.carousel-wrapper .carousel {
+    flex: 1;
+    overflow-x: auto;
+   
+}
+
+ .carousel-btn { 
+    position: absolute;
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.1);
+    z-index: 10;
+    background: rgba(200, 207, 240, 0.5);
     border: 1px solid rgba(255, 255, 255, 0.2);
     color: white;
     font-size: 2rem;
@@ -582,59 +720,364 @@ body {
     justify-content: center;
     cursor: pointer;
     transition: var(--transition-normal);
+    
+} 
+
+.carousel-btn.prev {
+    left: -18px;                /* ajusta según necesites */
+}
+
+.carousel-btn.next {
+    right: -18px;
 }
 
 .carousel-btn:hover {
     background: rgba(99, 102, 241, 0.6);
-    transform: scale(1.1);
+    transform: translateY(-15%) scale(1.1);
+    box-shadow: 0 0 25px rgba(99, 102, 241, 0.6);
+}
+
+/* MODAL (Mejorado) */
+   /* ================================================================= */ 
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background: rgba(15, 23, 42, 0.98);
+    border: 1px solid rgba(99, 102, 241, 0.4);
+    border-radius: 24px;
+    max-width: 920px;
+    width: 90%;
+    display: flex;
+    gap: 30px;
+    padding: 30px;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.modal-close {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    font-size: 2.4rem;
+    background: none;
+    border: none;
+    color: #ddd;
+    cursor: pointer;
+    z-index: 10;
+    transition: color 0.2s;
+}
+
+.modal-close:hover {
+    color: white;
+}
+
+.modal-poster img {
+    width: 310px;
+    height: 420px; /* Adjust this value to your liking */
+    object-fit: cover; /* Prevents the image from stretching/deforming */
+    margin-bottom: 10px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+/* Info */
+.modal-info {
+    flex: 1;
+}
+
+.modal-info h2 {
+    font-size: 3.2rem;
+    margin-bottom: 12px;
+    line-height: 1.1;
+}
+
+.modal-meta {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 24px;
+    font-size: 1.55rem;
+    color: var(--color-text-secondary);
+}
+
+.modal-description {
+    line-height: 1.65;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 32px;
+    padding-bottom: 30px;
+    font-size: 2rem;
+}
+
+/* Botones */
+.modal-buttons {
+    display: flex;
+    gap: 16px;
+    margin-top: 20px;
+}
+
+.btn {
+    padding: 14px 32px;
+    border-radius: 12px;
+    font-size: 1.55rem;
+    font-weight: 600;
 }
 /* =================================================================
    13. RESPONSIVE
    ================================================================= */
 
-/* Tablet: se oculta el panel Popular Hoy y el widget de géneros */
-@media (max-width: 1100px) {
-    .popular-sidebar {
-        display: none;
-    }
+/* MOBILE FIRST */
 
-    .content-layout {
-        grid-template-columns: 1fr;
-    }
-
-    .genres-widget {
-        display: none;
-    }
-}
-
-/* Mobile: sidebar desaparece, app pasa a 1 columna */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .app {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr;           /* una sola columna */
         padding: 10px;
+        gap: 10px;
+    }
+
+    .main-content{
+        gap:16px;
     }
 
     .sidebar {
+        display: none;                        /* ocultamos la sidebar */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 280px;
+        height: 100vh;
+        z-index: 1000;
+        border-radius: 0;
+        transform: translateX(-100%);     /* lo sacamos fuera de la pantalla a la izquierda */
+        transition: transform 0.4s ease
+    }
+
+    .sidebar.active {
+        display: flex;
+        transform: translatex(0);
+    }
+    /* Fondo oscuro cuando el menú está abierto */
+
+    .overlay {
         display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.75);
+        z-index: 900;
+    }
+
+    .overlay.active {
+        display: block;
+    }
+
+    .nav-item {
+        transition: all 0.2s ease;
+    }
+
+    .nav-item:active {                    /* cuando el dedo presiona */
+        background: rgba(99, 102, 241, 0.3);
+        transform: scale(1.03);           /* se hace un poquito más grande */
+        color: white;
+    }
+
+    /* También mejoramos el botón hamburguesa */
+    .menu-toggle {
+        padding: 8px 12px;
+        border-radius: 8px;
+        transition: all 0.2s ease;
+    }
+
+    .menu-toggle:active {
+        background: rgba(255, 255, 255, 0.15);
+        transform: scale(1.1);
+    }
+
+    .navbar {
+        padding: 0 16px;
+        height: 64px;
+        gap: 12px;
+    }
+
+    .search-bar input {
+        width: 160px;           /* más pequeño en móvil */
     }
 
     .navbar__menu {
         display: none;
     }
 
+    /* HERO - Lo más importante */
+    .hero {
+        min-height: 400px;
+        padding: 28px 20px 40px 20px;
+        background-position: center 30%;
+        justify-content: flex-end;
+    }
+
     .hero__title {
-        font-size: 3.8rem;
+        font-size: 4.2rem;
+        line-height: 1.05;
+        margin-bottom: 12px;
     }
 
-    .search-bar input {
-        width: 160px;
+    .hero__description{
+        font-size: 1.4rem;
+        margin-bottom: 18px;
     }
 
-    .movie-card {
-        width: 150px;
+    .hero__content {
+        max-width: 100%;
+        padding-top: 15%;
     }
 
-    .movie-card img {
-        height: 220px;
+    .hero__meta {
+        gap: 8px;
+        margin-bottom: 20px;
+    }
+
+    .hero__meta span {
+        font-size: 1.25rem;
+        padding: 5px 12px;
+    }
+    
+    .btn {
+        padding: 14px 24px;
+        font-size: 1.45rem;
+    }
+
+    .popular-sidebar {
+        display: none;
+    }
+
+    .movie-card, .movie-card_2{
+        width: 140px;
+    }
+
+    .movie-card img, .movie-card_2 img {
+        height: 200px;
+    }
+
+    .section__title {
+        font-size: 1.8rem;
+    }
+
+  @media (max-width: 768px) {
+    .modal-content {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        max-height: 94vh;
+        border-radius: 20px 20px 0 0;
+        flex-direction: column;
+        padding: 24px 20px 40px;
+        gap: 24px;
+    }
+
+    .modal-poster img {
+        width: 90%;
+        max-width: 300px;
+        height: auto;
+       
+    }
+
+    .modal-info h2 {
+        font-size: 2.6rem;
+    }
+
+    .modal-description {
+        font-size: 1.7rem;
+    }
+
+    .modal-meta {
+        font-size: 1.45rem;
+        gap: 16px;
+    }
+
+    .modal-buttons {
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    .btn {
+        padding: 16px 24px;
+        font-size: 1.6rem;
+    }
+}
+}
+
+/* =============================================
+   AJUSTES PARA PANTALLAS MUY PEQUEÑAS
+   ============================================= */
+
+@media (max-width: 768px) {
+
+    .content-layout {
+        grid-template-columns: 1fr;        /* una sola columna */
+        gap: 24px;
+    }
+
+    /* El carrusel recomendado ahora ocupa todo el ancho */
+    .content-left {
+        min-width: 0;
+    }
+
+    /* Hacemos las tarjetas un poco más grandes */
+    .movie-card_2, .movie-card {
+        width: 158px;          /* más grande que antes */
+    }
+
+    .movie-card_2 img, .movie-card img {
+        height: 210px;
+    }
+
+    /* El widget de géneros se baja automáticamente */
+    .genres-widget {
+        margin: 0 auto;
+        width: 80%;
+      
+    }
+
+    .genres-grid{
+         margin-left: 4px; 
+    }
+    /* Ajuste extra del hero si hace falta */
+    .hero {
+        min-height: 380px;
+    }
+
+      .modal-content {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        max-height: 92vh;
+        border-radius: 20px 20px 0 0;
+        flex-direction: column;
+        padding: 24px 20px 40px;
+        gap: 24px;
+    }
+
+       .modal-poster img {
+        width: 85%;
+        max-width: 290px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+       
     }
 }
